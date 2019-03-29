@@ -1,5 +1,5 @@
 import { createElement, useRef } from 'rax';
-import { isWeex, isWeb } from 'universal-env';
+import { isWeex } from 'universal-env';
 
 const PLAY = 'play';
 const PAUSE = 'pause';
