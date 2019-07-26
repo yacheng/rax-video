@@ -1,6 +1,6 @@
 {
   "name": "rax-video",
-  "version": "1.0.1-beta.1",
+  "version": "1.0.2-beta",
   "description": "Video component for Rax.",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
@@ -10,7 +10,8 @@
     "start": "rax-scripts start --type 'component' -p 8000",
     "prepublishOnly": "npm run build",
     "test": "npm run build && rax-scripts test",
-    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src"
+    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src",
+    "miniapp": "rax-scripts start --type 'component-miniapp'"
   },
   "files": [
     "dist",
@@ -33,7 +34,7 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "universal-env": "^0.6.5"
+    "universal-env": "^1.0.0"
   },
   "peerDependencies": {
     "rax": "^1.0.0"
