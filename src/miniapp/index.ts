@@ -1,10 +1,10 @@
 Component({
   data: {},
   props: {
-    src: "",
+    src: '',
     autoPlay: false,
-    style: "",
-    className: ""
+    style: '',
+    className: ''
   },
   didMount: function didMount() {},
   methods: {}
