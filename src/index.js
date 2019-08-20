@@ -9,6 +9,13 @@ export default function Video(props) {
 
   if (isWeex) {
     props.playStatus = props.playControl;
+
+    if (props.controls == null || props.controls === true) {
+      props.controls = true;
+    } else {
+      props.controls = "nocontrols";
+    }
+
     return (<video {...props} />);
   } else {
     const nativeProps = { ...props };
