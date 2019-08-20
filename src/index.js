@@ -13,7 +13,7 @@ export default function Video(props) {
     if (props.controls == null || props.controls === true) {
       props.controls = true;
     } else {
-      props.controls = "nocontrols";
+      props.controls = 'nocontrols';
     }
 
     return (<video {...props} />);
