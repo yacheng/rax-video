@@ -1,4 +1,4 @@
-import { createElement, useRef } from 'rax';
+import { createElement, useRef, useEffect } from 'rax';
 import { isWeex } from 'universal-env';
 
 const PLAY = 'play';
@@ -10,7 +10,7 @@ export default function Video(props) {
   if (isWeex) {
     props.playStatus = props.playControl;
 
-    if (props.controls == null || props.controls === true) {
+    if (props.controls == undefined || props.controls === true) {
       props.controls = true;
     } else {
       props.controls = 'nocontrols';
@@ -27,21 +27,20 @@ export default function Video(props) {
       nativeProps.autoPlay = props.autoPlay;
     }
     // Default controls is true
-    if (props.controls == null || props.controls === true) {
+    if (props.controls === undefined || props.controls === true) {
       nativeProps.controls = true;
     } else {
       delete nativeProps.controls;
     }
 
-    const node = refEl.current;
-    if (node) {
-      if (props.playControl === PAUSE) {
+    useEffect(() => {
+      const node = refEl.current;
+      if (!props.autoPlay || props.playControl === PAUSE) {
         node.pause();
-      } else if (props.playControl === PLAY) {
+      } else if (props.autoPlay || props.playControl === PLAY) {
         node.play();
       }
-    }
-
-    return <video ref={refEl} {...nativeProps} webkit-playsinline playsinline><source src={props.src} /></video>;
+    }, []);
+    return <video ref={refEl} {...nativeProps} webkit-playsinline playsinline muted><source src={props.src} /></video>;
   }
 }

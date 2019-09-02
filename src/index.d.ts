@@ -1,5 +1,5 @@
 import * as Rax from 'rax';
-import {BaseProps} from 'rax';
+import { BaseProps } from 'rax';
 
 /**
  * component:video(视频播放)
