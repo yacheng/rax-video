@@ -18,7 +18,7 @@ export default function Video(props) {
       props.controls = 'nocontrols';
     }
 
-    return (<video className={cx('rax-video', className)}  {...props} />);
+    return (<video className={cx('rax-video', className)} {...props} />);
   } else {
     const nativeProps = { ...props };
 
