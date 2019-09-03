@@ -1,7 +1,6 @@
 import { createElement, useRef, useEffect } from 'rax';
 import { isWeex } from 'universal-env';
 import cx from 'classnames/dedupe';
-import './index.css'
 
 const PLAY = 'play';
 const PAUSE = 'pause';
