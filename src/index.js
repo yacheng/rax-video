@@ -1,12 +1,15 @@
 import { createElement, useRef, useEffect } from 'rax';
 import { isWeex } from 'universal-env';
+import cx from 'classnames/dedupe';
+import './index.css'
 
 const PLAY = 'play';
 const PAUSE = 'pause';
 
 export default function Video(props) {
   const refEl = useRef(null);
-
+  const { className } = props;
+  delete props.className;
   if (isWeex) {
     props.playStatus = props.playControl;
 
@@ -16,7 +19,7 @@ export default function Video(props) {
       props.controls = 'nocontrols';
     }
 
-    return (<video {...props} />);
+    return (<video className={cx('rax-video', className)}  {...props} />);
   } else {
     const nativeProps = { ...props };
 
@@ -41,6 +44,6 @@ export default function Video(props) {
         node.play();
       }
     }, []);
-    return <video ref={refEl} {...nativeProps} webkit-playsinline playsinline muted><source src={props.src} /></video>;
+    return <video className={cx('rax-video', className)} ref={refEl} {...nativeProps} webkit-playsinline playsinline muted><source src={props.src} /></video>;
   }
 }
